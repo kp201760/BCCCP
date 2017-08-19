@@ -30,6 +30,11 @@ public class EntryController
 			ICarSensor is,
 			IEntryUI ui) {
 		//TODO Implement constructor
+		this.carpark=carpark;
+		this.entryGate=entryGate;
+		this.os=os;
+		this.is=is;
+		this.ui=ui;
 	}
 
 
