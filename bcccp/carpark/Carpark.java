@@ -21,11 +21,11 @@ public class Carpark implements ICarpark {
 	public Carpark(String name, int capacity, 
 			IAdhocTicketDAO adhocTicketDAO, 
 			ISeasonTicketDAO seasonTicketDAO) {
-		//TODO Implement constructor
-		String name=this.name;
-		int capacity=this.capacity;
-		IAdhocTicketDAO adhocTicketDAO=this.adhocTicketDAO;
-		ISeasonTicketDAO seasonTicketDAO=this.seasonTicketDAO;		
+		//Constructor
+		this.name=name;
+		this.capacity=capacity;
+		this.adhocTicketDAO=adhocTicketDAO;
+		this.seasonTicketDAO=seasonTicketDAO0;		
 	}
 
 
