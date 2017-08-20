@@ -42,6 +42,7 @@ public class EntryController
 	@Override
 	public void buttonPushed() {
 		// TODO Auto-generated method stub
+		System.out.println("Please pushed the button to proceed.");
 		
 	}
 
@@ -58,7 +59,7 @@ public class EntryController
 	@Override
 	public void ticketTaken() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Please collect your ticket.");
 	}
 
 
