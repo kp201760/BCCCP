@@ -6,11 +6,13 @@ import bcccp.tickets.season.IUsageRecordFactory;
 public class SeasonTicketDAO implements ISeasonTicketDAO {
 
 	private IUsageRecordFactory factory;
+	private int noOfTickets;
 
 	
 	
-	public SeasonTicketDAO(IUsageRecordFactory factory) {
+	public SeasonTicketDAO(IUsageRecordFactory factory, int numberoftickets) {
 		//TOD Implement constructor
+		this.factory = factory;
 	}
 
 
@@ -34,7 +36,7 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 	@Override
 	public int getNumberOfTickets() {
 		// TODO Auto-generated method stub
-		return 0;
+		return noOfTickets;
 	}
 
 
