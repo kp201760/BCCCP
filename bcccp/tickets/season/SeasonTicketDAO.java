@@ -10,9 +10,10 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 
 	
 	
-	public SeasonTicketDAO(IUsageRecordFactory factory, int numberoftickets) {
+	public SeasonTicketDAO(IUsageRecordFactory factory, int noOfTickets) {
 		//TOD Implement constructor
 		this.factory = factory;
+		this.noOfTickets = noOfTickets;
 	}
 
 
