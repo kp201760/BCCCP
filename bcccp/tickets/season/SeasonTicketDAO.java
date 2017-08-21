@@ -11,6 +11,7 @@ public class SeasonTicketDAO implements ISeasonTicketDAO {
 	
 	public SeasonTicketDAO(IUsageRecordFactory factory) {
 		//TOD Implement constructor
+		this.factory = factory;
 	}
 
 
