@@ -31,20 +31,32 @@ public class UsageRecord implements IUsageRecord {
 		return startDateTime;
 	}
 
-
+	@Override
+	public String setStartTime(long startDateTime) {
+		// TODO Auto-generated method stub
+		this.startDateTime = startDateTime;
+	}
 
 	@Override
 	public long getEndTime() {
 		// TODO Auto-generated method stub
 		return getEndTime;
 	}
-
+	
+	public long setEndTime() {
+		// TODO Auto-generated method stub
+		this.endDateTime = endDateTime;
+	}
 
 
 	@Override
 	public String getSeasonTicketId() {
 		// TODO Auto-generated method stub
-		return ticketId;;
+		return ticketId;
+	}
+	public String setSeasonTicketId() {
+		// TODO Auto-generated method stub
+		this.ticketId = ticketId;
 	}
 	
 	
