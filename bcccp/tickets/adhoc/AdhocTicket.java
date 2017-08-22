@@ -16,27 +16,30 @@ public class AdhocTicket implements IAdhocTicket {
 	
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
 		//TDO Implement constructor
+		this.carparkId=carparkId;
+		this.ticketNo=ticketNo;
+		this.barcode=barcode;
 	}
 
 
 	@Override
 	public int getTicketNo() {
 		// TODO Auto-generated method stub
-		return 0;
+		return ticketNo;
 	}
 
 
 	@Override
 	public String getBarcode() {
 		// TODO Auto-generated method stub
-		return null;
+		return barcode;
 	}
 
 
 	@Override
 	public String getCarparkId() {
 		// TODO Auto-generated method stub
-		return null;
+		return carparkId;
 	}
 
 
@@ -50,7 +53,7 @@ public class AdhocTicket implements IAdhocTicket {
 	@Override
 	public long getEntryDateTime() {
 		// TODO Auto-generated method stub
-		return 0;
+		return entryDateTime;
 	}
 
 
@@ -71,7 +74,7 @@ public class AdhocTicket implements IAdhocTicket {
 	@Override
 	public long getPaidDateTime() {
 		// TODO Auto-generated method stub
-		return 0;
+		return paidDateTime;
 	}
 
 
@@ -85,7 +88,7 @@ public class AdhocTicket implements IAdhocTicket {
 	@Override
 	public float getCharge() {
 		// TODO Auto-generated method stub
-		return 0;
+		return charge;
 	}
 
 
@@ -99,7 +102,7 @@ public class AdhocTicket implements IAdhocTicket {
 	@Override
 	public long getExitDateTime() {
 		// TODO Auto-generated method stub
-		return 0;
+		return exitDateTime;
 	}
 
 
