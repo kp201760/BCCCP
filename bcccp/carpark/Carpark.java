@@ -22,6 +22,8 @@ public class Carpark implements ICarpark {
 			IAdhocTicketDAO adhocTicketDAO, 
 			ISeasonTicketDAO seasonTicketDAO) {
 		//TODO Implement constructor
+this.name=name;
+this.capacity=capacity;
 	}
 
 
