@@ -57,7 +57,14 @@ public class Carpark implements ICarpark {
 	@Override
 	public boolean isFull() {
 		// TODO Auto-generated method stub
-		return false;
+		if (numberOfCarsParked==capacity)
+		{
+			return true;	
+		}
+		else  
+		{
+			return false;
+		}
 	}
 
 
@@ -65,7 +72,7 @@ public class Carpark implements ICarpark {
 	@Override
 	public IAdhocTicket issueAdhocTicket() {
 		// TODO Auto-generated method stub
-		return null;
+		return ;
 	}
 
 
@@ -89,7 +96,7 @@ public class Carpark implements ICarpark {
 	@Override
 	public float calculateAddHocTicketCharge(long entryDateTime) {
 		// TODO Auto-generated method stub
-		return 0;
+		return ;
 	}
 
 
@@ -97,6 +104,12 @@ public class Carpark implements ICarpark {
 	@Override
 	public void recordAdhocTicketExit() {
 		// TODO Auto-generated method stub
+		int num=observers.length;
+        while(iter.hasMoreElements())
+        {
+            for( int I=0;I<num;I++)
+                observers[I].update( this, iter.nextElement() );    
+        }
 		
 	}
 
@@ -121,7 +134,14 @@ public class Carpark implements ICarpark {
 	@Override
 	public boolean isSeasonTicketValid(String ticketId) {
 		// TODO Auto-generated method stub
-		return false;
+		if( observers.getId==ticketId)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 
@@ -129,7 +149,14 @@ public class Carpark implements ICarpark {
 	@Override
 	public boolean isSeasonTicketInUse(String ticketId) {
 		// TODO Auto-generated method stub
-		return false;
+		if(inUse(ticketId)==true)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 
 
@@ -137,7 +164,17 @@ public class Carpark implements ICarpark {
 	@Override
 	public void recordSeasonTicketEntry(String ticketId) {
 		// TODO Auto-generated method stub
-		
+		int num=observers.length;
+        while(iter.hasMoreElements())
+        {
+            for( int i=0;i<num;i++){
+				if(observers[i]==ticketId)
+				{
+					long entry=observers[i].getStartTime();
+				}	
+			}				
+        }
+		System.out.println("Entry time of ticket ID "+ ticketId+" is "+entry);
 	}
 
 
@@ -145,7 +182,17 @@ public class Carpark implements ICarpark {
 	@Override
 	public void recordSeasonTicketExit(String ticketId) {
 		// TODO Auto-generated method stub
-		
+		int num=observers.length;
+        while(iter.hasMoreElements())
+        {
+            for( int i=0;i<num;i++){
+				if(observers[i]==ticketId)
+				{
+					long exit=observers[i].getEndTime();
+				}	
+			}				
+        }
+		System.out.println("Exit time of ticket ID "+ ticketId+" is "+exit);
 	}
 
 	
