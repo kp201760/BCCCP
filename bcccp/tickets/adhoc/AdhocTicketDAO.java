@@ -7,6 +7,7 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 	private IAdhocTicketFactory factory;
 	private int currentTicketNo;
 
+
 	// default constructor
 	public AdhocTicketDAO(){
 	  
