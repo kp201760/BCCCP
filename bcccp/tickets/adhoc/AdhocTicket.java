@@ -13,6 +13,10 @@ public class AdhocTicket implements IAdhocTicket {
 	private String barcode;
 
 	
+	// default constructor
+	public AdhocTicket(){
+	  
+	}
 	
 	public AdhocTicket(String carparkId, int ticketNo, String barcode) {
 		//TDO Implement constructor
