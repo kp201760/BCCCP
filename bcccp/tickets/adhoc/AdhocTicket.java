@@ -33,6 +33,10 @@ public class AdhocTicket implements IAdhocTicket {
 		return ticketNo;
 	}
 
+	public int setTicketNo(int ticketNo) {
+		this.ticketNo = ticketNo;
+	}
+
 
 	@Override
 	public String getBarcode() {
@@ -40,11 +44,19 @@ public class AdhocTicket implements IAdhocTicket {
 		return barcode;
 	}
 
+	public String setBarcode(String barcode) {
+		this.barcode = barcode;
+	}
+
 
 	@Override
 	public String getCarparkId() {
 		// TODO Auto-generated method stub
 		return carparkId;
+	}
+
+	public String setCarparkId(String carparkId) {
+		this.carparkId = carparkId;
 	}
 
 
@@ -59,6 +71,10 @@ public class AdhocTicket implements IAdhocTicket {
 	public long getEntryDateTime() {
 		// TODO Auto-generated method stub
 		return entryDateTime;
+	}
+
+	public long setEntryDateTime(long entryDateTime ) {
+		this.entryDateTime = entryDateTime;
 	}
 
 
@@ -82,6 +98,10 @@ public class AdhocTicket implements IAdhocTicket {
 		return paidDateTime;
 	}
 
+	public long setPaidDateTime(long paidDateTime) {
+		this.paidDateTime = paidDateTime;
+	}
+
 
 	@Override
 	public boolean isPaid() {
@@ -96,6 +116,10 @@ public class AdhocTicket implements IAdhocTicket {
 		return charge;
 	}
 
+	public float setCharge(float charge) {
+		this.charge = charge;
+	}
+
 
 	@Override
 	public void exit(long dateTime) {
@@ -108,6 +132,10 @@ public class AdhocTicket implements IAdhocTicket {
 	public long getExitDateTime() {
 		// TODO Auto-generated method stub
 		return exitDateTime;
+	}
+
+	public long setExitDateTime(long exitDateTime) {
+		this.exitDateTime = exitDateTime;
 	}
 
 
