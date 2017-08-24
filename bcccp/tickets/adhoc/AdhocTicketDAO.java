@@ -9,8 +9,10 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 
 	
 	
-	public AdhocTicketDAO(IAdhocTicketFactory factory) {
+	public AdhocTicketDAO(IAdhocTicketFactory factory, int currentTicketNo) {
 		//TODO Implement constructor
+		this.factory = factory;
+		this.currentTicketNo = currentTicketNo;
 	}
 
 
@@ -18,7 +20,7 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 	@Override
 	public IAdhocTicket createTicket(String carparkId) {
 		// TODO Auto-generated method stub
-		return null;
+		return ticket;
 	}
 
 
@@ -34,7 +36,7 @@ public class AdhocTicketDAO  implements IAdhocTicketDAO  {
 	@Override
 	public List<IAdhocTicket> getCurrentTickets() {
 		// TODO Auto-generated method stub
-		return null;
+		return currentTicketNo;
 	}
 
 	
