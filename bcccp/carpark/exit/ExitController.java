@@ -42,7 +42,20 @@ public class ExitController
 	public void ticketInserted(String ticketStr) {
 		// TODO Auto-generated method stub
 		System.out.println("Ticket is inserted for read.");
-		if(ticketStr
+		int num=observers.length;
+        while(iter.hasMoreElements())
+        {
+            for( int i=0;i<num;i++){
+				if(ticketStr==observers[i])
+				{
+					System.out.println("Ticket is accepted");
+				}
+				else
+				{
+					System.out.println("Ticket is rejected");
+				}
+			}
+		}
 		
 	}
 
@@ -51,7 +64,7 @@ public class ExitController
 	@Override
 	public void ticketTaken() {
 		// TODO Auto-generated method stub
-		
+		System.out.println("Please take your ticket.")
 	}
 
 
@@ -59,7 +72,10 @@ public class ExitController
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
 		// TODO Auto-generated method stub
-		
+		if(detected==true){
+			observers.addObserve(detectorId);
+			notifyobservers();
+		}			
 	}
 
 	
