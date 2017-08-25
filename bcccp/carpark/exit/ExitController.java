@@ -41,6 +41,8 @@ public class ExitController
 	@Override
 	public void ticketInserted(String ticketStr) {
 		// TODO Auto-generated method stub
+		System.out.println("Ticket is inserted for read.");
+		if(ticketStr
 		
 	}
 
