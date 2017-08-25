@@ -9,6 +9,7 @@ import bcccp.tickets.season.ISeasonTicketDAO;
 
 public class Carpark implements ICarpark {
 	
+	Final float charge=12.40;
 	private List<ICarparkObserver> observers;
 	private String carparkId;
 	private int capacity;
@@ -34,7 +35,9 @@ public class Carpark implements ICarpark {
 	@Override
 	public void register(ICarparkObserver observer) {
 		// TODO Auto-generated method stub
-		
+		observers.update(observer);
+		recordUsage(obsever);
+		notifyObsevers();
 	}
 
 
@@ -42,6 +45,9 @@ public class Carpark implements ICarpark {
 	@Override
 	public void deregister(ICarparkObserver observer) {
 		// TODO Auto-generated method stub
+		observers.remove(observer);
+		recordUsage(obsever);
+		notifyObsevers();
 		
 	}
 
@@ -73,7 +79,7 @@ public class Carpark implements ICarpark {
 	@Override
 	public IAdhocTicket issueAdhocTicket() {
 		// TODO Auto-generated method stub
-		return ;
+		return getTicketNo();
 	}
 
 
@@ -81,7 +87,8 @@ public class Carpark implements ICarpark {
 	@Override
 	public void recordAdhocTicketEntry() {
 		// TODO Auto-generated method stub
-		
+		observers.getEntryDateTime();
+		notifyObsevers();		
 	}
 
 
@@ -89,7 +96,15 @@ public class Carpark implements ICarpark {
 	@Override
 	public IAdhocTicket getAdhocTicket(String barcode) {
 		// TODO Auto-generated method stub
-		return null;
+		int num=observers.length;
+        while(iter.hasMoreElements())
+        {
+            for( int i=0;i<num;i++){
+				if(barcode==observers[i]){
+					observers1=observers[i].getAdhocTicket();
+				}
+					
+		return observers1;
 	}
 
 
@@ -97,7 +112,7 @@ public class Carpark implements ICarpark {
 	@Override
 	public float calculateAddHocTicketCharge(long entryDateTime) {
 		// TODO Auto-generated method stub
-		return ;
+		return exitDateTime-entryDateTime*Charge;
 	}
 
 
@@ -119,7 +134,9 @@ public class Carpark implements ICarpark {
 	@Override
 	public void registerSeasonTicket(ISeasonTicket seasonTicket) {
 		// TODO Auto-generated method stub
-		
+		observers.update(seasonTicket);
+		recordUsage(obsevers);
+		notifyObsevers();
 	}
 
 
@@ -127,7 +144,9 @@ public class Carpark implements ICarpark {
 	@Override
 	public void deregisterSeasonTicket(ISeasonTicket seasonTicket) {
 		// TODO Auto-generated method stub
-		
+		observers.remove(seasonTicket);
+		recordUsage(obsevers);
+		notifyObsevers();
 	}
 
 
