@@ -51,6 +51,21 @@ public class EntryController
 	@Override
 	public void ticketInserted(String barcode) {
 		// TODO Auto-generated method stub
+		System.println.out("Enter the ticket to read the barcode");
+		int num=observers.length;
+        while(iter.hasMoreElements())
+        {
+            for( int i=0;i<num;i++){
+				if(barcode==observers[i])
+				{
+					System.out.println("Ticket is accepted");
+				}
+				else
+				{
+					System.out.println("Ticket is rejected");
+				}
+			}
+		}
 		
 	}
 
@@ -75,7 +90,10 @@ public class EntryController
 	@Override
 	public void carEventDetected(String detectorId, boolean detected) {
 		// TODO Auto-generated method stub
-		
+		if(detected==true){
+			observers.addObserve(detectorId);
+			notifyobservers();
+		}		
 	}
 
 	
