@@ -11,6 +11,7 @@ public class ExitController
 		implements ICarSensorResponder,
 		           IExitController {
 	
+
 	private enum STATE { IDLE, WAITING, PROCESSED, REJECTED, TAKEN, EXITING, EXITED, BLOCKED } 
 	
 	private STATE state;
@@ -21,6 +22,10 @@ public class ExitController
 	private IGate exitGate;
 	private ICarSensor is;
 	private ICarSensor os; 
+	private IGate exitGate;
+	private ICarSensor insideSensor;
+	private ICarSensor outsideSensor; 
+
 	private IExitUI ui;
 	
 	private ICarpark carpark;
@@ -34,6 +39,7 @@ public class ExitController
 			ICarSensor is,
 			ICarSensor os, 
 			IExitUI ui) {
+
 		
 		this.carpark = carpark;
 		this.exitGate = exitGate;
@@ -58,6 +64,7 @@ public class ExitController
 
 
 	@Override
+
 	public void carEventDetected(String detectorId, boolean carDetected) {
 
 		log("carEventDetected: " + detectorId + ", car Detected: " + carDetected );
@@ -294,12 +301,33 @@ public class ExitController
 			ui.beep();
 			log("ticketTaken: called while in incorrect state");
 		}
+	public void ticketInserted(String ticketStr) {
+		// TODO Auto-generated method stub
+		
+	}
+
+
+
+	@Override
+	public void ticketTaken() {
+		// TODO Auto-generated method stub
+
 		
 	}
 
 
 
 
+
+	
+
+	@Override
+	public void carEventDetected(String detectorId, boolean detected) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 	
 
 }
