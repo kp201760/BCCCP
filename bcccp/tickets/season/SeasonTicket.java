@@ -14,11 +14,9 @@ public class SeasonTicket implements ISeasonTicket {
 	private long startValidPeriod;
 	private long endValidPeriod;
 	
-	public SeasonTicket (String ticketId, 
-			             String carparkId, 
+	public SeasonTicket (String ticketId, String carparkId, 
 			             long startValidPeriod,
 			             long endValidPeriod) {
-		//TDO Implement constructor
 		this.ticketId = ticketId;
 		this.carparkId =carparkId;
 		this.startValidPeriod = startValidPeriod;
@@ -27,65 +25,71 @@ public class SeasonTicket implements ISeasonTicket {
 		usages = new ArrayList<IUsageRecord>();
 	}
 
+
 	@Override
 	public String getId() {
-		// TODO Auto-generated method stub
 		return ticketId;
 	}
 
+
 	@Override
 	public String getCarparkId() {
-		// TODO Auto-generated method stub
 		return carparkId;
 	}
 
+
 	@Override
 	public long getStartValidPeriod() {
-		// TODO Auto-generated method stub
 		return startValidPeriod;
 	}
 
+
 	@Override
 	public long getEndValidPeriod() {
-		// TODO Auto-generated method stub
 		return endValidPeriod;
 	}
 
+
 	@Override
 	public boolean inUse() {
-		// TODO Auto-generated method stub
 		return currentUsage != null;
 	}
 
+
 	@Override
 	public void recordUsage(IUsageRecord record) {
-		// TODO Auto-generated method stub
 		currentUsage = record;
 		if (!usages.contains(record) ) {
 			usages.add(record);
 		}
 		
-		
 	}
+
 
 	@Override
 	public IUsageRecord getCurrentUsageRecord() {
-		// TODO Auto-generated method stub
 		return currentUsage;
 	}
 
+
+	@Override
+	public List<IUsageRecord> getUsageRecords() {
+		return Collections.unmodifiableList(usages);
+	}
+
+
 	@Override
 	public void endUsage(long dateTime) {
-		// TODO Auto-generated method stub
 		if (currentUsage == null) throw new RuntimeException("SeasonTicket.endUsage : ticket is not in use");
 		
 		currentUsage.finalise(dateTime);
 		currentUsage = null;
+		
 	}
 
-	@Override
-	public List<IUsageRecord> getUsageRecords() {
-		// TODO Auto-generated method stub
+
+	
+	public String toString() {
 		StringBuilder builder = new StringBuilder();
 		builder.append("Carpark    : " + carparkId + "\n" +
 		       "Ticket No  : " + ticketId + "\n" );
@@ -95,7 +99,5 @@ public class SeasonTicket implements ISeasonTicket {
 		return builder.toString();
 	}
 
-	}
 
-
-
+}
