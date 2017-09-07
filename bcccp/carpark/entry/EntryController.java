@@ -8,12 +8,14 @@ import bcccp.carpark.ICarparkObserver;
 import bcccp.carpark.IGate;
 import bcccp.tickets.adhoc.IAdhocTicket;
 
+public class EntryController implements ICarSensorResponder,
+
 public class EntryController 
 		implements ICarSensorResponder,
+
 				   ICarparkObserver,
 		           IEntryController {
 	
-
 	private enum STATE { IDLE, WAITING, FULL, VALIDATED, ISSUED, TAKEN, ENTERING, ENTERED, BLOCKED } 
 	
 	private STATE state_;
@@ -23,11 +25,6 @@ public class EntryController
 	private IGate entryGate_;
 	private ICarSensor outsideEntrySensor_; 
 	private ICarSensor insideEntrySensor_;
-
-	private IGate entryGate;
-	private ICarSensor outsideSensor; 
-	private ICarSensor insideSensor;
-
 	private IEntryUI ui;
 	
 	private ICarpark carpark;
@@ -41,7 +38,6 @@ public class EntryController
 			ICarSensor os, 
 			ICarSensor is,
 			IEntryUI ui) {
-
 		
 		this.carpark = carpark;
 		this.entryGate_ = entryGate;
@@ -61,15 +57,11 @@ public class EntryController
 	
 	private void log(String message) {
 		System.out.println("EntryController : " + message);
-
-		//TODO Implement constructor
-
 	}
 
 
 
 	@Override
-
 	public void carEventDetected(String detectorId, boolean carDetected) {
 
 		log("carEventDetected: " + detectorId + ", car Detected: " + carDetected );
@@ -93,9 +85,28 @@ public class EntryController
 			}
 			break;
 			
+		case WAITING:
+			log("setState: WAITING");
+			setState(STATE.WAITING);
+			break;
+			
+		case FULL: 
+			if(nubersOfCarParked==capcity){
+				setState(STATE.FULL);
+			}
+			break;
+			
+		case VALIDATED:
+			if (detectorId.equals(insideEntrySensor_.getId()) && carDetected) {
+				setState(STATE.VALIDATED);
+			}
+			break;
+			
+
 		case WAITING: 
 		case FULL: 
-		case VALIDATED: 
+		case VALIDATED:
+        
 		case ISSUED: 
 			if (detectorId.equals(outsideEntrySensor_.getId()) && !carDetected) {
 				setState(STATE.IDLE);
@@ -322,26 +333,6 @@ public class EntryController
 			ui.beep();
 			log("ticketTaken: called while in incorrect state");
 		}
-
-	public void buttonPushed() {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void ticketInserted(String barcode) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void ticketTaken() {
-		// TODO Auto-generated method stub
-
 		
 	}
 
@@ -349,8 +340,7 @@ public class EntryController
 
 	@Override
 	public void notifyCarparkEvent() {
-
-    if (state_ == STATE.FULL) {
+		if (state_ == STATE.FULL) {
 			if (!carpark.isFull()) {
 				setState(STATE.WAITING);
 			}
@@ -358,21 +348,6 @@ public class EntryController
 		
 	}
 
-	
-
-	// TODO Auto-generated method stub
-		
-	}
-
-
-
-	@Override
-	public void carEventDetected(String detectorId, boolean detected) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	
 	
 
 }
